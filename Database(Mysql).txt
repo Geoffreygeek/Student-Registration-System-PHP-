@@ -1,0 +1,32 @@
+-- Creating the database
+CREATE DATABASE Connect2;
+
+-- Using the newly created database
+USE connect2;
+
+-- Creating the 'courses' table
+
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL
+);
+
+-- Inserting sample courses into the 'courses' table
+
+INSERT INTO courses (course_name) VALUES 
+('Computer Science'), 
+('Information Technology'), 
+('Engineering'), 
+('Mathematics');
+
+-- Creating the 'students' table
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    regno VARCHAR(50) UNIQUE NOT NULL,
+    course_id INT,
+    email VARCHAR(100) NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+    password VARCHAR(255) NOT NULL;
+);
